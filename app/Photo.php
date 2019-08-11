@@ -14,4 +14,9 @@ class Photo extends Model
     {
         return $this->uploads . $photo;
     }
+
+    public function user()
+    {
+        $this->hasOne('App\User');
+    }
 }

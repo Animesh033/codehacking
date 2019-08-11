@@ -45,7 +45,14 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Update User</button>
+            <button type="submit" class="btn btn-primary pull-left">Update User</button>
+        </form>
+        <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger pull-right">Delete User</button>
+            </div>
         </form>
     </div>
 @endsection
