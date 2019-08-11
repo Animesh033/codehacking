@@ -20,6 +20,8 @@
                     @foreach ($roles as $role)
                         <option value="{{ $role->id }}">{{ ucfirst($role->name) }}</option>
                     @endforeach
+                @else
+                <option value="">No roles found</option>
                 @endif
             </select>
         </div>
