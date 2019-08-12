@@ -8,6 +8,7 @@ use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UsersEditRequest;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -139,6 +140,7 @@ class AdminUsersController extends Controller
             $user->photo()->delete();
         }
         $user->delete();
+        Session::flash('deleted_user', 'The user has been deleted');
         return redirect()->route('users.index');
     }
 }
