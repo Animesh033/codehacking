@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+  @if(Session::has('deleted_post'))
+  <p class="bg-danger">{{ session('deleted_post') }}</p>
+  @endif
     <h1>Posts</h1>
     <table class="table">
             <thead>
@@ -20,10 +23,10 @@
                   <tr>
                       <td>{{ $post->id }}</td>
                       <td><img height="60" class="img-rounded" src="{{ $post->photo ? $post->photo->file : 'https://via.placeholder.com/100' }}" alt=""></td>
-                      <td>{{ $post->user ? $post->user->name : 'Post has no Owner' }}</td>
-                      <td>{{ $post->category_id }}</td>
-                      <td><a href="{{ route('posts.edit', $post->id) }}">{{ $post->title }}</a></td>
-                      <td>{{ $post->body }}</td>
+                      <td><a href="{{ route('posts.edit', $post->id) }}">{{ $post->user ? $post->user->name : 'Post has no owner' }}</a></td>
+                      <td>{{ $post->category ? $post->category->name : 'Uncategorized' }}</td>
+                      <td>{{ $post->title }}</td>
+                      <td>{{ str_limit($post->body, 10) }}</td>
                       <td>{{ $post->created_at->diffForHumans() }}</td>
                       <td>{{ $post->updated_at->diffForHumans() }}</td>
                   </tr>
