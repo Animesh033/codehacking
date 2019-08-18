@@ -25,7 +25,7 @@
     <![endif]-->
 
 
-
+@yield('styles')
 
 </head>
 
@@ -151,6 +151,10 @@
                             <li>
                                 <a href="{{ route('posts.create') }}">Create Post</a>
                             </li>
+                            
+                            <li>
+                                <a href="{{ route('comments.index') }}">All Comments</a>
+                            </li>
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -177,11 +181,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{ route('media.index') }}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{ route('media.upload') }}">Upload Media</a>
                             </li>
 
                         </ul>
@@ -355,7 +359,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('udemy/js/libs.js')}}"></script>
-
+@yield('scripts')
 
 @yield('footer')
 
