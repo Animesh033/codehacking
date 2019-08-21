@@ -17,6 +17,7 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('route:clear');
     $exitCode = Artisan::call('config:cache');
     $exitCode = Artisan::call('env');
+    $exitCode = Artisan::call('route:clear');
     // $exitCode = Artisan::call('storage:link');
     echo "The time is " . date("h:i:sa");
     echo "<br>";
