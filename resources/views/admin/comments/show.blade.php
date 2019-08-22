@@ -27,7 +27,7 @@
                     <td>{{ str_limit($comment->body, 10) }}</td>
                     {{-- <td>{{ $comment->created_at->diffForHumans() }}</td> --}}
                     {{-- <td>{{ $comment->updated_at->diffForHumans() }}</td> --}}
-                    <td><a href="{{ route('home.post', $comment->post_id) }}">View Post</a></td>
+                    <td><a href="{{ route('home.post', $comment->post->slug) }}">View Post</a></td>
                     <td>
                         @if($comment->is_active == 1)
                         <form method="POST" action="{{ route('comments.update', $comment->id) }}">
