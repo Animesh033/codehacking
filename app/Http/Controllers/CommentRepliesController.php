@@ -70,7 +70,7 @@ class CommentRepliesController extends Controller
         //
         // return "It works";
         $comment = Comment::findOrFail($id);
-        $replies = $comment->replies;
+        $replies = $comment->replies()->paginate(3);
         return view('admin.comments.replies.show', compact('replies'));
     }
 

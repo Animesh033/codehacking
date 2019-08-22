@@ -1,4 +1,4 @@
 @extends('layouts.admin')
 @section('content')
-    <h2>Replies </h2>
+    <h1>Replies</h1>
 @endsection

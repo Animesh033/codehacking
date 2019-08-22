@@ -63,6 +63,11 @@
             @endforeach
         </tbody>
     </table>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+            {{ $replies->links() }}
+        </div>
+    </div>
 @else
     <h1 class="text-center">No replies</h1>
 @endif
