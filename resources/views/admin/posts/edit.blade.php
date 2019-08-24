@@ -2,8 +2,9 @@
 @section('content')
     <h1>Edit Posts</h1>
     @include('includes.errors')
+    @include('includes.tinyeditor')
     <div class="col-sm-3">
-        <img src="{{ $post->photo ? $post->photo->file : 'https://via.placeholder.com/400' }}" alt="Photo" class="img-responsive img-rounded">
+        <img src="{{ $post->photo ? $post->photo->file : $post->photoPlaceholder() }}" alt="Photo" class="img-responsive img-rounded">
     </div>
     <div class="col-sm-9">
         <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data">
