@@ -27,9 +27,7 @@ Route::get('/clear-cache', function() {
     return 'Cache and view cleared!';
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -38,9 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/{id}', 'AdminPostsController@post')->name('home.post');
 
 Route::group(['middleware' => ['admin']], function () {
-    Route::get('/admin', function(){
-        return view('admin.index');
-    });
+    Route::get('/admin', 'AdminController@index');
     Route::resource('admin/users', 'AdminUsersController');
     Route::resource('admin/posts', 'AdminPostsController');
     Route::resource('admin/categories', 'AdminCategoriesController');
