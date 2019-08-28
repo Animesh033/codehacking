@@ -33,7 +33,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/post/{id}', 'AdminPostsController@post')->name('home.post');
+Route::get('/post/{slug}', 'HomeController@post')->name('home.post');
 
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin', 'AdminController@index');

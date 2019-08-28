@@ -1,5 +1,8 @@
-@extends('layouts.blog-post')
+@extends('layouts.blog-home')
 @section('content')
+<div class="row">
+    <div class="col-sm-8">
+        
     <!-- Blog Post -->
 
     <!-- Title -->
@@ -7,7 +10,7 @@
 
     <!-- Author -->
     <p class="lead">
-        by <a href="#">{{ $post->user->name }}</a>
+        by {{ $post->user->name }}
     </p>
 
     <hr>
@@ -27,6 +30,9 @@
     
     @include('includes.post-1')
     {{-- @include('includes.disqus') --}}
+    </div> <!-- /.col-sm-8 -->
+    @include('includes.front-sidebar')
+</div>
 
 @endsection
-    @include('includes.post-2')
+@include('includes.post-2')
