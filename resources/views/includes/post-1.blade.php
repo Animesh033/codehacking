@@ -1,7 +1,4 @@
 <hr>
-@if(Session::has('comment_message'))
-    <p class="bg-danger">{{ session('comment_message') }}</p>
-@endif
 <!-- Blog Comments -->
 @if(Auth::check())
     <!-- Comments Form -->

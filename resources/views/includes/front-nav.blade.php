@@ -32,6 +32,11 @@
                                 <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
+                                @if(Auth::user()->isAdmin())
+                                <li>
+                                    <a href="{{ url('admin') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
+                                </li>
+                                @endif
                                 <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>

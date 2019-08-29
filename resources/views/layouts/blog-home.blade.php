@@ -1,8 +1,9 @@
 @include('includes.front-header')
+<!-- Navigation -->
+@include('includes.front-nav')
 
-    <!-- Navigation -->
-    @include('includes.front-nav')
+@include('includes.flash-messages')
 
+@yield('content')
 
-    @yield('content')
 @include('includes.front-footer')
