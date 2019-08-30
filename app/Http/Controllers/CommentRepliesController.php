@@ -96,6 +96,7 @@ class CommentRepliesController extends Controller
     {
         //
         CommentReply::findOrFail($id)->update($request->all());
+        Session::flash('updated_reply', 'The reply has been updated');
         return redirect()->back();
     }
 
@@ -109,6 +110,7 @@ class CommentRepliesController extends Controller
     {
         //
         CommentReply::findOrFail($id)->delete();
+        Session::flash('deleted_reply', 'The reply has been deleted');
         return redirect()->back();
     }
 }

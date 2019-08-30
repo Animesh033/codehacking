@@ -3,7 +3,7 @@
     <h1>Edit User</h1>
     @include('includes.errors')
     <div class="col-sm-3">
-        <img src="{{ $user->photo ? $user->photo->file : 'https://via.placeholder.com/400' }}" alt="Photo" class="img-responsive img-rounded">
+        <img src="{{ $user->photo ? $user->photo->file : Auth::user()->gravatar }}" alt="Photo" class="img-responsive img-rounded">
     </div>
     <div class="col-sm-9">
         <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">

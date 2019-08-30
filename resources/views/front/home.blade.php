@@ -41,7 +41,7 @@
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span>{{ $post->created_at->diffForHumans() }}</p>
                     <hr>
-                    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                    <img class="img-responsive img-rounded" style="max-height:200px; max-width:100%;" src="{{ $post->photo ? $post->photo->file == '/images/avatar.png' ? $post->photoPlaceholder() : $post->photo->file : $post->photoPlaceholder() }}" alt="">
                     <hr>
                     <p>{!! str_limit($post->body, 200) !!}</p>
                     <a class="btn btn-primary" href="{{ route('home.post', $post->slug) }}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>

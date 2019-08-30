@@ -1,8 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-  @if(Session::has('deleted_user'))
-    <p class="bg-danger">{{ session('deleted_user') }}</p>
-  @endif
     <h1>Users</h1>
     <table class="table">
       <thead>
@@ -22,7 +19,7 @@
           @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
-                <td><img height="60" class="img-rounded" src="{{ $user->photo ? $user->photo->file : 'https://via.placeholder.com/100' }}" alt=""></td>
+                <td><img height="60" class="img-rounded" src="{{ $user->photo ? $user->photo->file : Auth::user()->gravatar }}" alt=""></td>
                 <td><a href="{{ route('users.edit', $user->id) }}">{{ $user->name }}</a></td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role ? $user->role->name : 'User has no role' }}</td>

@@ -41,6 +41,7 @@ class AdminCategoriesController extends Controller
     {
         //
         Category::create($request->all());
+        Session::flash('created_category', 'The category has been created');
         return redirect('/admin/categories');
     }
 
@@ -80,6 +81,7 @@ class AdminCategoriesController extends Controller
         //
         $category = Category::findOrFail($id);
         $category->update($request->all());
+        Session::flash('updated_category', 'The category has been updated');
         return redirect()->route('categories.index');
 
     }

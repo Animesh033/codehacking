@@ -31,6 +31,7 @@ class AdminMediasController extends Controller
         $file->move('images', $name);
 
         Photo::create(['file'=>$name]);
+        Session::flash('create_media', 'The photo has been uploaded');
         return view('admin.media.index');
     }
 
@@ -62,6 +63,7 @@ class AdminMediasController extends Controller
                 }
                 $photo->delete();
             }
+            Session::flash('deleted_media', 'All photos have been deleted');
             return redirect()->back();
         }else{
             return redirect()->back();

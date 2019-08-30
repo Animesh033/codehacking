@@ -57,6 +57,7 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
         $user->posts()->create($input);
+        Session::flash('created_post', 'The post has been created');
 
         return redirect('/admin/posts');
     }
@@ -106,6 +107,7 @@ class AdminPostsController extends Controller
         }
         
         Auth::user()->posts()->whereId($id)->first()->update($input);
+        Session::flash('updated_post', 'The post has been updated');
         return redirect('/admin/posts');
     }
 

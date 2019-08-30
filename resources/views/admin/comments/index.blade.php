@@ -22,7 +22,7 @@
             @foreach ($comments as $comment)
                 <tr>
                     <td>{{ $comment->id }}</td>
-                    <td><img height="60" class="img-rounded" src="{{ $comment->photo ? $comment->photo : 'https://via.placeholder.com/100' }}" alt=""></td>
+                    <td><img height="60" class="img-rounded" src="{{ $comment->photo ? $comment->photo : Auth::user()->gravatar }}" alt=""></td>
                     <td><a href="{{ route('comments.edit', $comment->id) }}">{{ $comment->author ? $comment->author : 'comment has no author' }}</a></td>
                     <td>{{ $comment->email ? $comment->email : 'No email' }}</td>
                     <td>{{ str_limit($comment->body, 10) }}</td>

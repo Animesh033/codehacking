@@ -21,7 +21,7 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="{{ $post->photo ? $post->photo->file : $post->photoPlaceholder()}}" alt="">
+    <img class="img-responsive img-rounded" style="max-height:200px; max-width:100%;" src="{{ $post->photo ? $post->photo->file : $post->photoPlaceholder()}}" alt="">
 
     <hr>
 

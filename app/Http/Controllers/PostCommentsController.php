@@ -92,6 +92,7 @@ class PostCommentsController extends Controller
     {
         //
         Comment::findOrFail($id)->update($request->all());
+        Session::flash('updated_comment', 'The comment has been updated');
         return redirect()->back();
     }
 
@@ -105,6 +106,7 @@ class PostCommentsController extends Controller
     {
         //
         Comment::findOrFail($id)->delete();
+        Session::flash('deleted_comment', 'The comment has been deleted');
         return redirect()->back();
     }
 }
