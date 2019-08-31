@@ -6,6 +6,7 @@ use App\Post;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PostCommentsController extends Controller
 {
@@ -40,6 +41,25 @@ class PostCommentsController extends Controller
     public function store(Request $request)
     {
         //
+        // $validatedData = $request->validate([
+        //     'body' => 'required',
+        // ]);
+            
+        $rules = [
+            'body' => 'required',
+        ];
+
+        $messages = [
+            'body.required' => 'Please write something in comment.',
+        ];
+        
+        $validator = Validator::make($request->all(), $rules, $messages)->validate(); //Automatic redirection using validate() method
+
+        // if ($validator->fails()) {
+        //     return redirect()->back()
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
         // dd($request->all());
         $user = Auth::user();
 

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <h1>Edit Category</h1>
-    @include('includes.errors')
     <div class="col-sm-6">
         <form method="POST" action="{{ route('categories.update', $category->id) }}" enctype="multipart/form-data">
             {{ method_field('PUT') }}

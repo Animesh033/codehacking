@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <h1>Edit User</h1>
-    @include('includes.errors')
     <div class="col-sm-3">
         <img src="{{ $user->photo ? $user->photo->file : Auth::user()->gravatar }}" alt="Photo" class="img-responsive img-rounded">
     </div>

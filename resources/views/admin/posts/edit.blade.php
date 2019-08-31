@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <h1>Edit Posts</h1>
-    @include('includes.errors')
     @include('includes.tinyeditor')
     <div class="col-sm-3">
         <img src="{{ $post->photo ? $post->photo->file : $post->photoPlaceholder() }}" alt="Photo" class="img-responsive img-rounded">

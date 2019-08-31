@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <h1>Create User</h1>
-    @include('includes.errors')
     <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">

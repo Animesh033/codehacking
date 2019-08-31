@@ -8341,3 +8341,15 @@ button.close {
   display: none;
 }
 
+.error-flash-ul {
+  margin: 0;
+  padding: 0;
+}
+
+.error-flash .error-flash-ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+

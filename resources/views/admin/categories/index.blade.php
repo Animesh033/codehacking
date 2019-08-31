@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
     <h1>Category</h1>
-    @include('includes.errors')
     <div class="col-sm-6">
         <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
             {{ csrf_field() }}

@@ -7,6 +7,7 @@ use App\Comment;
 use App\CommentReply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CommentRepliesController extends Controller
 {
@@ -44,6 +45,16 @@ class CommentRepliesController extends Controller
     public function createReply(Request $request)
     {
         //
+        $rules = [
+            'body' => 'required',
+        ];
+
+        $messages = [
+            'body.required' => 'Please write something in reply.',
+        ];
+        
+        $validator = Validator::make($request->all(), $rules, $messages)->validate();
+
         $user = Auth::user();
 
         $data = [

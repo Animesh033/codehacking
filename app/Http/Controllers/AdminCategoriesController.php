@@ -40,6 +40,10 @@ class AdminCategoriesController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ]);
+
         Category::create($request->all());
         Session::flash('created_category', 'The category has been created');
         return redirect('/admin/categories');

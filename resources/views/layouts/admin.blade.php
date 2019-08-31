@@ -87,8 +87,9 @@
                 {{-- <h1 class="page-header"></h1> --}}
                 <div class="page-header">
                         <div class="row">
-                                @include('includes.flash-messages')
-                            </div>
+                            @include('includes.errors')
+                            @include('includes.flash-messages')
+                        </div>
                 </div>
 
                 @yield('content')
